@@ -1,0 +1,44 @@
+<head>
+  <link rel="stylesheet" href="./css/style.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@1,100&display=swap');
+  </style>
+</head>
+
+<body>
+  <div id = "container">
+    <h1 id = "title">Coin Flip Challenge</h1>
+      <div id = "flip-info-container">
+        <div id = "left-side-container">
+          <div id = "flipList-box">
+            <h2 id = "flipList">flipList</h2>
+          </div>
+          <div id = "winning-sets-container">
+            <div id = "player-1" class = "player">
+              <p>Player 1: <span id = "player-1-set"></span></p>
+            </div>
+            <div id = "player-2" class = "player">
+              <p>Player 2: <span id = "player-2-set"></span></p>
+            </div>
+          </div>
+          <div id = "button-bar">
+            <button type = "button" id = "btnFlip" onclick = "flip()">Next Flip</button>
+            <button type = "button" id = "btnRestart" onclick = "restart()">Restart</button>
+          </div>
+        </div>
+        
+        <div id = "current-flip-container">
+          <div id = "current-flip-box">
+            <h1 id = "current-flip"> </h1>
+          </div>
+          <h2 id = "current-flip-label">Current Flip </h2>
+        </div>
+          <div id = "flip-list-stats-box"> 
+            <h2>Current statistics</h2>
+            <p>A statistic</p>
+            <p>B statistic</p>
+          </div>
+  </div>
+  <script src="js/script.js"></script>
+</body>

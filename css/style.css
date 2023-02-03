@@ -1,0 +1,123 @@
+body {
+  background-color: #03fcca;
+  font-family: 'Roboto', sans-serif;
+}
+
+#container{
+  margin: auto;
+  width: 70%;
+  background-color: black;
+  border-radius: 20px;
+  border: 2px solid darkgrey;
+  padding: 10px; 
+}
+
+#title{
+  color: blue;
+  text-align: center;
+}
+
+#flip-info-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border: 2px green solid;
+}
+
+#left-side-container{
+  display: flex;
+  flex-direction: column;
+  border: 2px solid orange;
+  justify-content: space-between;
+  width: 400px;
+  padding: 5px;
+
+}
+
+#flipList-box{
+  background-color: lightgrey;
+  border: 6px solid blue;
+  margin: 10px;
+  padding-left: 8px;
+}
+
+#winning-sets-container{
+  
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: lightgrey;
+  color: blue;
+  border: 6px solid blue;
+  padding: 5px;
+  margin: 10px;
+}
+
+.player{
+  margin: 0 10px;
+  background-color: darkgrey;
+  padding: 0 10px;
+}
+#current-flip-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px lightgrey solid;
+}
+
+#current-flip-box{
+  background-color: lightgrey;
+  border: 12px solid red;
+  padding: 15px;
+  margin: 10px 10px;
+  text-align: center; 
+}
+
+#current-flip{
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  display: flex; /* or inline-flex */
+  align-items: center; 
+  justify-content: center;
+
+}
+
+.heads{
+  background-color: black;
+  color: white; 
+}
+
+.tails{
+  background-color: white;
+  color: black;
+}
+
+#current-flip-label{
+  color: white;
+}
+
+#button-bar{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  border: 1px yellow solid;
+}
+
+button{
+  background-color: blue;
+  color: #03fcca;
+  height: 40px;
+  width: 90px;
+  margin: 20px 20px;
+  border-radius: 10px;
+}
+
+#flip-list-stats-box{
+  background-color: lightgrey;
+  color: blue;
+  border: 2px solid pink;
+  padding: 15px;
+  margin: 10px;
+  
+}
