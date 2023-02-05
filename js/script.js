@@ -6,7 +6,7 @@ const headsImg = 'img/244px_Quarter_Heads.png';
 const tailsImg = '../img/240_257_Quarter_Tails.png';
 
 let coinImage = document.getElementById("coin-image");
-let flipListElement = document.getElementById("flipList");
+let flipListArchive = document.getElementById("flipList-archive");
 let currentFlipElement = document.getElementById("current-flip");
 let playerOneSet = document.getElementById("player-1-set");
 let playerTwoSet = document.getElementById("player-2-set");
@@ -17,7 +17,7 @@ let currentFlip = '';
 
 function flip() {
   currentFlip = getFlip();
-  flipList += currentFlip;
+  addFlipToList(currentFlip);
   if (currentFlip === 'H'){
     coinImage.src = headsImg;
   } else {
@@ -27,6 +27,15 @@ function flip() {
   count++;
 }
 
+function addFlipToList(flip) {
+  let newCoin = document.createElement("span");
+  newCoin.textContent = flip;
+  flipListArchive.appendChild(newCoin);
+  newCoin.classList.add("coin");
+  let classToAdd = flip === 'H' ? 'heads' : 'tails';
+  newCoin.classList.add(classToAdd);
+
+}
 
 function getFlip() {
   let coinFlip = Math.floor(Math.random() * 2);
@@ -39,22 +48,11 @@ function restart() {
   currentFlip = '';
   playerOneSet.innerHTML = TARGET_1;
   playerTwoSet.innerHTML = TARGET_2;
+  flipListArchive.replaceChildren(); //with no parameter removes all child elements
   updateHTML();
 }
 
 function updateHTML(){
-  flipListElement.innerHTML = flipList;
-  currentFlipElement.innerHTML = currentFlip;
-  if (currentFlip === "H"){
-    currentFlipElement.classList.remove("tails");
-    currentFlipElement.classList.add("heads");
-  }
-  else{
-    currentFlipElement.classList.remove("heads");
-    currentFlipElement.classList.add("tails");
-  }
-  
-  
-  
+
   
 }

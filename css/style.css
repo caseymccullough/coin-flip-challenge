@@ -35,11 +35,30 @@ body {
 }
 
 #flipList-box{
+  display: flex;
+  flex-direction: row;
   background-color: lightgrey;
   border: 6px solid blue;
   margin: 10px;
   padding-left: 8px;
 }
+
+#flipList-archive{
+  display: flex;
+  flex-direction: row;
+}
+
+#flipList-divider{
+  border-left: solid red 2px;
+}
+
+#flipList-front-three{
+  display: flex;
+  flex-direction: row;
+  background-color: aquamarine;
+}
+
+
 
 #winning-sets-container{
   
@@ -73,19 +92,21 @@ body {
   text-align: center; 
 }
 
-#current-flip{
+.coin{
   border-radius: 50%;
-  width: 100px;
-  height: 100px;
+  width: 40px;
+  height: 40px;
   display: flex; /* or inline-flex */
   align-items: center; 
   justify-content: center;
-
+  margin-right: 2px;
+  border: 1px solid gray; 
 }
 
 .heads{
   background-color: black;
-  color: white; 
+  color: white;
+ 
 }
 
 .tails{
