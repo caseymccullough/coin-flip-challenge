@@ -73,9 +73,18 @@ body {
 }
 
 .player{
-  margin: 0 10px;
   background-color: darkgrey;
   padding: 0 10px;
+  text-align: center;
+
+
+
+}
+
+.winning-set{
+  display: flex;
+  flex-direction: row;
+  margin: 5px;
 }
 #current-flip-container {
   display: flex;
