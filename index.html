@@ -46,9 +46,22 @@
           <h2 id = "current-flip-label">Current Flip </h2>
         </div>
           <div id = "flip-list-stats-box"> 
-            <h2>Current statistics</h2>
-            <p>A statistic</p>
-            <p>B statistic</p>
+            <h2>Statistics</h2>
+            <div class = "statistics" id = "current-game-stats">
+              <h2>Current Game</h2>
+              <div id = "current-game-head-and-tail-counts">
+                <div class = "heads" id = "current-game-head-count-container">
+                  <span>Heads </span><span id = "current-game-head-count">#</span>
+                </div> 
+                <div class = "tails" id = "current-game-tail-count-container">
+                  <span>Tails </span><span id = "current-game-tail-count">#</span>
+                </div>
+              </div>
+            </div>
+            <div class = "statistics" id = "cumulative-stats">
+              <h2>All Games</h2>
+            </div>
+            
           </div>
   </div>
   <script src="js/script.js"></script>

@@ -11,13 +11,20 @@ let currentFlipElement = document.getElementById("current-flip");
 let playerOneSet = document.getElementById("player-1-set");
 let playerTwoSet = document.getElementById("player-2-set");
 
+// Statistics
+let currentGameHeadCountElement = document.getElementById("current-game-head-count");
+let currentGameTailCountElement = document.getElementById("current-game-tail-count");
+
 let count = 0;
+let currentGameHeadCount = 0;
+let currentGameTailCount = 0;
 let flipString = '';
 let currentFlip = '';
 
 function flip() {
   currentFlip = getFlip();
   flipString += currentFlip;
+  updateStats(currentFlip);
   let lastThree = flipString.substring(flipString.length - 3);
   console.log(flipString + '\t' + lastThree);
   checkForWin(lastThree);
@@ -80,13 +87,33 @@ function checkForWin(lastThreeFlips){
 function restart() {
   flipString = '';
   currentFlip = '';
+  currentGameHeadCount = 0;
+  currentGameTailCount = 0;
   addPlayerSets();
   flipListArchive.replaceChildren(); //with no parameter removes all child elements
   updateHTML();
 }
 
+function updateStats(flip){
+  if (flip === 'H'){
+    currentGameHeadCount++;
+  } else if (flip === 'T') {
+    currentGameTailCount++;
+  }
+  else {
+    console.log ("ERROR. Not H nor T");
+  }
+}
+
 function updateHTML(){
   displayCurrentFlip(currentFlip);
   displayCoinList(currentFlip);
+  displayStats();
   
+}
+
+function displayStats(){
+  currentGameHeadCountElement.textContent = currentGameHeadCount;
+  currentGameTailCountElement.textContent = currentGameTailCount;
+
 }

@@ -151,3 +151,14 @@ button{
   margin: 10px;
   
 }
+
+.statistics{
+  border: blue solid 2px;
+}
+
+#current-game-head-and-tail-counts{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border: 1px yellow solid;
+}
