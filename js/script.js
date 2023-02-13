@@ -1,5 +1,5 @@
 const FLIP_STRING_MAX = 20;
-const PLAYER_SET_1 = 'TTH';
+const PLAYER_SET_1 = 'TTT';
 const PLAYER_SET_2 = 'HTT';
 
 const headsImg = 'img/244px_Quarter_Heads.png';
@@ -7,6 +7,7 @@ const tailsImg = '../img/240_257_Quarter_Tails.png';
 
 let coinImage = document.getElementById("coin-image");
 let flipListArchive = document.getElementById("flipList-archive");
+let lastThreeElement = document.getElementById("flipList-last-three");
 let currentFlipElement = document.getElementById("current-flip");
 let playerOneSet = document.getElementById("player-1-set");
 let playerTwoSet = document.getElementById("player-2-set");
@@ -26,16 +27,46 @@ function flip() {
   flipString += currentFlip;
   updateStats(currentFlip);
   let lastThree = flipString.substring(flipString.length - 3);
-  console.log(flipString + '\t' + lastThree);
+ 
   checkForWin(lastThree);
   updateHTML();
   
 }
 
-function displayCoinList(flip) {
+function displayCoinList(flipString) {
+  let flipStringFront = '';
+  let lastThree = flipString.slice(-3); // last three characters in the string
+  displayLastThree(lastThree);
+  if (flipString.length > 3) {
+    flipStringFront = flipString.substring(0, flipString.length - 3);
+    displayFlipArchive(flipStringFront);
+  }
+  
+  console.log(flipString + '\t' + flipStringFront +  '\t' + lastThree);
 
-  const newCoin = getCoinElement(flip);
-  flipListArchive.appendChild(newCoin);
+  
+  // const newCoin = getCoinElement(flipString.charAt(flipString.length - 1));
+  // flipListArchive.appendChild(newCoin);
+  
+}
+
+function displayFlipArchive(flipArchiveString){
+  flipListArchive.replaceChildren(); // clear all existing coins
+  for (let i = 0; i < flipArchiveString.length; i++){
+    const newCoin = getCoinElement(flipString.charAt(i));
+    flipListArchive.appendChild(newCoin);
+  }
+}
+
+function displayLastThree(lastThree){
+  console.log("call to displayLastThree with " + lastThree);
+  lastThreeElement.replaceChildren();
+  let newCoin;
+  for (let i = 0; i < lastThree.length; i++){
+    let flip = lastThree.charAt(i);
+    newCoin = getCoinElement(flip);
+    lastThreeElement.appendChild(newCoin);
+  }
   
 }
 
@@ -107,7 +138,7 @@ function updateStats(flip){
 
 function updateHTML(){
   displayCurrentFlip(currentFlip);
-  displayCoinList(currentFlip);
+  displayCoinList(flipString);
   displayStats();
   
 }
