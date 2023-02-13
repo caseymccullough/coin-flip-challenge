@@ -15,11 +15,18 @@ body {
 .row{
   display: flex;
   flex-direction: row;
+  border: 1px yellow solid;
+}
+
+#top-row-container{
+  justify-content: space-around;
 }
 
 #title{
   color: blue;
   text-align: center;
+  font-size: 50px;
+  padding: 0 30px;
 }
 
 #flip-info-container {
@@ -34,7 +41,6 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border: 2px purple solid;
   padding: 25px 0;
 }
 
@@ -64,25 +70,16 @@ body {
 #flipList-last-three{
   display: flex;
   flex-direction: row;
-  background-color: aquamarine;
-}
-
-#winning-sets-container{
-  
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  background-color: lightgrey;
-  color: blue;
-  border: 6px solid blue;
-  padding: 5px;
-  margin: 10px;
+  width: 191px;
+  justify-content: flex-start;
+  background-color: yellow;
 }
 
 .player{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  border-radius: 50%;
 
 }
 
@@ -103,6 +100,7 @@ body {
   color: white;
   padding-left: 100px;
 }
+
 #current-flip-container {
   display: flex;
   flex-direction: column;
@@ -116,14 +114,14 @@ body {
   display: flex; /* or inline-flex */
   align-items: center; 
   justify-content: center;
-  margin-right: 2px;
-  border: 1px solid gray; 
+  margin: 2px;
+  border: 1px darkgrey solid;
+  font-weight: 800;
 }
 
 .heads{
   background-color: black;
   color: white;
- 
 }
 
 .tails{
@@ -131,25 +129,25 @@ body {
   color: black;
 }
 
-#current-flip-label{
-  color: white;
-}
-
 #button-bar{
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center; 
-  border: 1px yellow solid;
 }
 
 button{
   background-color: blue;
-  color: #03fcca;
-  height: 40px;
-  width: 120px;
+  color: white;
+  height: 80px;
+  width: 220px;
   margin: 20px 20px;
   border-radius: 10px;
+  border: white 2px solid;
+}
+
+#startSimBtn{
+  background-color: red;
 }
 
 #flip-list-stats-box{
@@ -170,19 +168,23 @@ button{
 
 .statistics{
   border: blue solid 2px;
+  background-color: white;
+  height: 300px;
   border-radius: 15px;
   width: 100%;
+  padding: 10px;
   margin: 10px;
 }
 
 .stats-line {
   padding: 0 20px;
   font-size: larger;
+  background-color: white;
 }
 
 #current-game-head-and-tail-counts{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  border: 1px yellow solid;
+
 }

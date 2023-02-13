@@ -8,8 +8,15 @@
 
 <body>
   <div id = "container">
-    <h1 id = "title">Coin Flip Challenge</h1>
     <div id = "top-row-container" class = "row">
+      <h1 id = "title">Coin Flip Challenge</h1>
+      <div id = "button-bar" class = "left-side" >
+        <button type = "button" id = "startGameBtn" onclick = "restart()">Start Game</button>
+        <button type = "button" id = "startSimBtn" onclick = "restart()">Start Simulation</button>
+      </div>
+      
+  </div>
+    <div id = "middle-row-container" class = "row">
 
       <div id = "match-window" class = "right-side">
           <div id = "player-1" class = "player">
@@ -20,7 +27,6 @@
           <div id = "flipList-container">
             <div id = "flipList-archive"></div>
             <div id = "flipList-last-three">
-              <div class = "coin"></div>
             </div>
           </div>
           <div id = "player-2" class = "player">
@@ -31,7 +37,7 @@
           </div>
       </div>
       <div id = "current-flip-container" class = "left-side">
-        <div id = "current-flip-box">
+        <div id = "current-flip-box" onclick = "flip()">
           <img src="" id="coin-image">
         </div>
       </div>
@@ -61,10 +67,7 @@
         </div>
         </div>
       </div>
-      <div id = "button-bar" class = "left-side">
-        <button type = "button" id = "btnFlip" onclick = "flip()">Next Flip</button>
-        <button type = "button" id = "btnRestart" onclick = "restart()">Restart</button>
-      </div>
+
     </div>
   </div>
   <script src="js/script.js"></script>
