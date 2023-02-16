@@ -6,7 +6,7 @@ body {
 
 #container{
   margin: auto;
-  width: 70%;
+  width: 80%;
   background-color: black;
   border-radius: 20px;
   border: 2px solid darkgrey;
@@ -80,16 +80,15 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  border-radius: 50%;
 
 }
 
 #player-1{
-  background-color: red;
+  background-image: linear-gradient(to right, darkgrey , red);
 }
 
 #player-2{
-  background-color: blue;
+  background-image: linear-gradient(to right, darkgrey , blue);
 }
 
 .winning-set{
