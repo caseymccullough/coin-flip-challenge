@@ -107,20 +107,24 @@ body {
   align-items: center;
 }
 
-#current-flip{
-
+.current-flip-item{
+  width: 60px;
+  height: 60px;
+  margin: 2px;
+  display: flex; /* or inline-flex */
+  align-items: center; 
+  justify-content: center;
+  font-weight: 800;
 }
 
 .coin{
   border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  display: flex; /* or inline-flex */
-  align-items: center; 
-  justify-content: center;
-  margin: 2px;
   border: 1px darkgrey solid;
-  font-weight: 800;
+}
+
+.additional-coin-count{
+  color: red;
+  font-size: larger;
 }
 
 .heads{
@@ -162,6 +166,8 @@ button{
   margin: 10px;
   
 }
+
+
 
 #stats-container{
   display: flex;

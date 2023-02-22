@@ -1,4 +1,4 @@
-const FLIP_STRING_MAX = 20;
+const FLIP_STRING_MAX = 8;
 const PLAYER_SET_1 = 'TTT';
 const PLAYER_SET_2 = 'HTT';
 
@@ -12,6 +12,9 @@ let currentFlipElement = document.getElementById("current-flip");
 let playerOneSet = document.getElementById("player-1-set");
 let playerTwoSet = document.getElementById("player-2-set");
 
+// Sounds
+let clickSound = new sound("sounds/click.wav");
+
 // Statistics
 let currentGameHeadCountElement = document.getElementById("current-game-head-count");
 let currentGameTailCountElement = document.getElementById("current-game-tail-count");
@@ -23,6 +26,7 @@ let flipString = '';
 let currentFlip = '';
 
 function flip() {
+  clickSound.play();
   currentFlip = getFlip();
   flipString += currentFlip;
   updateStats(currentFlip);
@@ -52,7 +56,20 @@ function displayCoinList(flipString) {
 
 function displayFlipArchive(flipArchiveString){
   flipListArchive.replaceChildren(); // clear all existing coins
-  for (let i = 0; i < flipArchiveString.length; i++){
+  
+  let coinsThatFit = FLIP_STRING_MAX - 3;
+  // number of coins to remove from the left-hand-side
+  let numExcessCoins = Math.max (0, flipArchiveString.length - coinsThatFit);
+  console.log ("numExcessCoins: " + numExcessCoins);
+  // print '+num' to indicate number of coins off the screen
+  if (numExcessCoins > 0){
+    let additionalCoinCount = document.createElement("span");
+    additionalCoinCount.textContent = "+" + numExcessCoins;
+    additionalCoinCount.classList.add("additional-coin-count");
+    additionalCoinCount.classList.add("current-flip-item");
+    flipListArchive.appendChild(additionalCoinCount);
+  }
+  for (let i = numExcessCoins; i < flipArchiveString.length; i++){
     const newCoin = getCoinElement(flipString.charAt(i));
     flipListArchive.appendChild(newCoin);
   }
@@ -73,6 +90,7 @@ function displayLastThree(lastThree){
 function getCoinElement(coinLabel){
   let newCoin = document.createElement("span");
   newCoin.textContent = coinLabel;
+  newCoin.classList.add("current-flip-item");
   newCoin.classList.add("coin");
   let classToAdd = coinLabel === 'H' ? 'heads' : 'tails';
   newCoin.classList.add(classToAdd);
@@ -147,4 +165,21 @@ function displayStats(){
   currentGameHeadCountElement.textContent = currentGameHeadCount;
   currentGameTailCountElement.textContent = currentGameTailCount;
 
+}
+
+function sound(src) {
+  this.sound = document.createElement("audio");
+  this.sound.src = src;
+  this.sound.setAttribute("preload", "auto");
+  this.sound.setAttribute("controls", "none");
+  this.sound.style.display = "none";
+
+  document.body.appendChild(this.sound);
+
+  this.play = function(){
+    this.sound.play();
+  }
+  this.stop = function(){
+    this.sound.pause();
+  }
 }
